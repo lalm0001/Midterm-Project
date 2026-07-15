@@ -1,0 +1,632 @@
+/* main colours */
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gold: #d69e3d;
+  --dark-gold: #966f2c;
+  --cream: #f3f0e9;
+  --max-page: 1200px;
+  --heading-font: "Lato", Arial, sans-serif;
+  --text-font: "Karla", Arial, sans-serif;
+  --move: 220ms ease;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--black);
+  font-family: var(--text-font);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  font-weight: 900;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* skip link */
+.screen-skip {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 50;
+  padding: 0.7rem 1rem;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: var(--text-font);
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform var(--move);
+}
+
+.screen-skip:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--gold);
+}
+
+.wrap {
+  width: min(var(--max-page), calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.small-title {
+  margin-bottom: 0.45rem;
+  color: var(--gold);
+  font-family: var(--heading-font);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.plain-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.55rem;
+  border: 2px solid transparent;
+  font-family: var(--text-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color var(--move), border-color var(--move), color var(--move);
+}
+
+.plain-button-light {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.plain-button-dark {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.plain-button-outline {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.plain-button:hover,
+.plain-button:focus-visible {
+  background-color: var(--dark-gold);
+  border-color: var(--dark-gold);
+  color: var(--white);
+}
+
+/* top nav */
+.topbar {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 10;
+  padding-top: 0.55rem;
+  color: var(--white);
+}
+
+.topbar-inner {
+  width: min(var(--max-page), calc(100% - 1rem));
+  margin-inline: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.shop-logo img {
+  width: 8rem;
+}
+
+.site-links {
+  display: none;
+}
+
+.site-links > a {
+  font-family: var(--heading-font);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color var(--move);
+}
+
+/* hero */
+.intro-banner {
+  position: relative;
+  min-height: 20.75rem;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 3.4rem 1rem 2.15rem;
+  color: var(--white);
+  text-align: center;
+  isolation: isolate;
+}
+
+.intro-banner-img,
+.intro-dim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.intro-banner-img {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.intro-dim {
+  z-index: -1;
+  background-color: rgb(0 0 0 / 58%);
+}
+
+.intro-copy {
+  width: min(40rem, 100%);
+  animation: fade-up 850ms ease-out both;
+}
+
+.intro-copy h1 {
+  margin-bottom: 0.7rem;
+}
+
+.intro-copy p {
+  max-width: 38rem;
+  margin: 0 auto 1.05rem;
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* photo section */
+.page-band {
+  background-color: var(--cream);
+}
+
+.taste-area {
+  padding: 2.7rem 0 2.35rem;
+}
+
+.taste-area h2 {
+  max-width: 38rem;
+  margin-bottom: 1.05rem;
+}
+
+.coffee-collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.coffee-collage img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.coffee-collage-main {
+  grid-column: 1 / -1;
+}
+
+/* offer section */
+.offer-area {
+  padding: 1.25rem 0 2.75rem;
+}
+
+.center-title {
+  text-align: center;
+}
+
+.offer-list {
+  display: grid;
+  gap: 2.7rem;
+  margin-top: 1.45rem;
+}
+
+.offer-item {
+  text-align: center;
+}
+
+.offer-item img {
+  height: 6.4rem;
+  margin: 0 auto 1.05rem;
+}
+
+.offer-item p {
+  max-width: 18rem;
+  margin-inline: auto;
+  font-size: 0.86rem;
+}
+
+.offer-item:nth-child(3) img {
+  transform: translateY(-0.05rem);
+}
+
+/* menu and locations */
+.quick-panels {
+  background:
+    linear-gradient(rgb(0 0 0 / 57%), rgb(0 0 0 / 57%)),
+    url("../images/coffee-shop.jpeg") center / cover;
+  color: var(--white);
+}
+
+.quick-panel {
+  min-height: 11.8rem;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.quick-panel + .quick-panel {
+  border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.quick-panel h2 {
+  max-width: 34rem;
+  margin-bottom: 1.1rem;
+}
+
+/* story */
+.story-area {
+  padding: 2.75rem 0 3.1rem;
+}
+
+.story-layout {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.story-layout > img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.story-text p:not(.small-title) {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.story-text .plain-button[href^="#"] {
+  margin-top: 0.1rem;
+}
+
+/* reviews */
+.review-area {
+  padding: 3rem 0 2.2rem;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.review-area h2 {
+  max-width: 36rem;
+  margin-bottom: 1.55rem;
+}
+
+.review-list {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.review-card {
+  position: relative;
+  min-height: 30.5rem;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.review-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgb(0 0 0 / 5%), rgb(0 0 0 / 82%));
+}
+
+.review-card img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.review-card:hover img,
+.review-card:focus-within img {
+  transform: scale(1.04);
+}
+
+.review-text {
+  padding: 1.4rem;
+}
+
+.review-text p {
+  margin-bottom: 0.85rem;
+  font-size: 0.88rem;
+}
+
+.review-text strong {
+  color: var(--gold);
+  font-family: var(--heading-font);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+}
+
+/* footer */
+.bottom-note {
+  padding: 1.4rem 0 1.9rem;
+  border-top: 1px solid #282828;
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+}
+
+.bottom-note p {
+  font-size: 0.75rem;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.375rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  .wrap {
+    width: min(var(--max-page), calc(100% - 3.25rem));
+  }
+
+  .topbar {
+    padding-top: 1rem;
+  }
+
+  .topbar-inner {
+    width: min(var(--max-page), calc(100% - 2.2rem));
+    align-items: center;
+  }
+
+  .shop-logo img {
+    width: 10.9rem;
+  }
+
+  .site-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .site-links > a:hover,
+  .site-links > a:focus-visible {
+    color: var(--gold);
+  }
+
+  .intro-banner {
+    min-height: 35.7rem;
+    padding: 6.5rem 1.5rem 4.5rem;
+  }
+
+  .intro-copy p {
+    margin-bottom: 1.35rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .plain-button {
+    min-height: 3.25rem;
+    padding-inline: 2.4rem;
+    font-size: 0.82rem;
+  }
+
+  .taste-area {
+    padding: 5.2rem 0 3.9rem;
+  }
+
+  .taste-area h2 {
+    margin-bottom: 1.45rem;
+  }
+
+  .coffee-collage {
+    grid-template-columns: 1.08fr 0.52fr 0.52fr;
+    gap: 1.25rem;
+  }
+
+  .coffee-collage-main {
+    grid-column: auto;
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+
+  .offer-area {
+    padding: 2.6rem 0 5.3rem;
+  }
+
+  .offer-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.65rem 2.5rem;
+    margin-top: 2.25rem;
+  }
+
+  .offer-item:last-child {
+    grid-column: 1 / -1;
+    width: min(23rem, 100%);
+    justify-self: center;
+  }
+
+  .offer-item img {
+    height: 8rem;
+  }
+
+  .quick-panels {
+    display: grid;
+  }
+
+  .quick-panel {
+    min-height: 16.5rem;
+    padding-block: 3.25rem;
+  }
+
+  .story-area {
+    padding: 4.4rem 0 5.2rem;
+  }
+
+  .story-layout {
+    gap: 1.8rem;
+  }
+
+  .review-area {
+    padding: 5rem 0 4.2rem;
+  }
+
+  .review-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.45rem;
+  }
+
+  .review-card {
+    min-height: 27rem;
+  }
+
+  .review-card:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 0.75rem);
+    justify-self: center;
+  }
+}
+
+/* desktop */
+@media (min-width: 1100px) {
+  h1 {
+    font-size: 3.875rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .intro-banner {
+    min-height: 42rem;
+  }
+
+  .taste-area {
+    padding: 7.55rem 0 4.7rem;
+  }
+
+  .coffee-collage {
+    gap: 1.55rem;
+  }
+
+  .offer-area {
+    padding: 3rem 0 7.7rem;
+  }
+
+  .offer-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.9rem;
+    margin-top: 2.6rem;
+  }
+
+  .offer-item:last-child {
+    grid-column: auto;
+    width: auto;
+  }
+
+  .quick-panels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-panel {
+    min-height: 26rem;
+  }
+
+  .quick-panel + .quick-panel {
+    border-top: 0;
+  }
+
+  .story-area {
+    padding: 7.5rem 0;
+  }
+
+  .story-layout {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2.8rem;
+    align-items: center;
+  }
+
+  .story-layout > img {
+    height: 30rem;
+    aspect-ratio: auto;
+  }
+
+  .story-text {
+    padding-left: 0.8rem;
+  }
+
+  .review-area {
+    padding: 7.25rem 0 6.15rem;
+  }
+
+  .review-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .review-card,
+  .review-card:last-child {
+    width: auto;
+    min-height: 25.75rem;
+    grid-column: auto;
+  }
+}
